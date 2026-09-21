@@ -34,4 +34,4 @@ jobs:
         # GitHub's maintained major tag is used here because deploy-pages is
         # released independently from the Pages artifact action. Dependabot
         # keeps this reference current.
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
