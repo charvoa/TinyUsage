@@ -196,11 +196,11 @@ struct CollectorCoreTests {
 
     @Test func diagnosticsRedactHomePathsAndBearerTokens() throws {
         let account = ProviderAccount(id: "opaque", family: .claude, displayName: "Claude")
-        let snapshot = ProviderSnapshot(account: account, metrics: [], fetchedAt: .now, expiresAt: .now, warnings: [.init(id: "w", message: "/Users/alice/.claude failed with Bearer secret-token")])
+        let snapshot = ProviderSnapshot(account: account, metrics: [], fetchedAt: .now, expiresAt: .now, warnings: [.init(id: "w", message: "<home>/.claude failed with Bearer <redacted>")])
         let report = DiagnosticReport(bundle: .init(collectorID: "collector", revision: 1, snapshots: [snapshot], collectorHealth: .degraded))
         let text = String(decoding: try report.encoded(), as: UTF8.self)
-        #expect(!text.contains("alice"))
-        #expect(!text.contains("secret-token"))
+        #expect(!text.contains("<home>"))
+        #expect(!text.contains("<redacted>"))
     }
 
     private func makeSnapshot(source: UsageSourceDescriptor, account: String, metric: String) -> SourceSnapshot {
