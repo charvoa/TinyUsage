@@ -6,7 +6,7 @@ TinyUsage is a local-only macOS collector and iPhone companion for Claude and Co
 
 > No cloud. No telemetry. No mystery sync. Your Mac collects; your iPhone displays.
 
-![TinyUsage architecture](docs/assets/architecture.svg)
+![TinyUsage announcement](docs/assets/bento-announcement.png)
 
 ## Why TinyUsage?
 
@@ -16,6 +16,13 @@ TinyUsage is a local-only macOS collector and iPhone companion for Claude and Co
 - **Open source:** inspect every connector, migration, and wire message before you run it.
 
 TinyUsage is source-only. There are no signed binaries, App Store builds, Homebrew formulae, backend accounts, CloudKit containers, proprietary push service, or analytics SDK.
+
+<details>
+<summary>See the technical architecture</summary>
+
+![TinyUsage local architecture](docs/assets/architecture.svg)
+
+</details>
 
 ## Quick start
 
