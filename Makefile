@@ -16,7 +16,7 @@ generate:
 	xcodegen generate
 
 generate-check:
-	@tmp=$$(mktemp -d); cp -R $(PROJECT) "$$tmp/TinyUsage.xcodeproj"; xcodegen generate >/dev/null; diff -ru "$$tmp/TinyUsage.xcodeproj" $(PROJECT); result=$$?; rm -rf "$$tmp"; exit $$result
+	@scripts/check-generated-project.sh $(PROJECT)
 
 format:
 	@files=$$(find TinyUsage TinyUsageCollector TinyUsageCollectorCore TinyUsageDomain TinyUsageWidget TinyUsageTests TinyUsageCollectorTests -name '*.swift' -print); xcrun swift-format format --in-place $$files
