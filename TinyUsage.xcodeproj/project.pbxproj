@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04098743AB12B155331363E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5606C33279BDA7F39D31229B /* Assets.xcassets */; };
 		0AD38EAA680FD86C2153D06B /* PairingCredentialStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1FC40093159EF36FCC624C /* PairingCredentialStore.swift */; };
 		14E24BC963A6FC66AEAC39F9 /* TinyUsageDomain in Frameworks */ = {isa = PBXBuildFile; productRef = 9FC3DA6E70497D4C187B8980 /* TinyUsageDomain */; };
 		1546B0370686CB7CC54BCDD2 /* TinyUsageDomain in Frameworks */ = {isa = PBXBuildFile; productRef = 2AFEC107952BCAE99D62E4F1 /* TinyUsageDomain */; };
@@ -18,6 +19,7 @@
 		2D45E8411E78FCED27CF9877 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AED00AE0C0CD9CBE1F83A8 /* DashboardView.swift */; };
 		40BA2CB539274C929B29A0C7 /* SecureBonjourServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2EFC7271462CDCB77A0A1E /* SecureBonjourServer.swift */; };
 		411233574E9577B5C7B3B2BD /* CredentialResolvers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2394F6D3C0C699FE3ACA25A /* CredentialResolvers.swift */; };
+		48681304E0412DFB18F4DB90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FD6E3C650DF0FF585328CF6 /* Assets.xcassets */; };
 		48779214EC4DE31423911BFF /* UsageLiveActivityWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D153B290618F0027CA2BC3 /* UsageLiveActivityWidget.swift */; };
 		48ED7AA283D899A79C7A60B7 /* TinyUsageDomain in Frameworks */ = {isa = PBXBuildFile; productRef = 024547F7BC74E60749CB565A /* TinyUsageDomain */; };
 		4EBED5827F0CEA53788508C8 /* DiagnosticReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F7565DB2D8727099A5E31 /* DiagnosticReport.swift */; };
@@ -114,6 +116,7 @@
 /* Begin PBXFileReference section */
 		0182D1988D86080FCDDBAD32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0D9C8415E9A77B0863BC038A /* ProviderAggregator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderAggregator.swift; sourceTree = "<group>"; };
+		0FD6E3C650DF0FF585328CF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		116919314C16D1FDBC4DBD06 /* TinyUsageCollectorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TinyUsageCollectorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		13E7CA9B6F833C7F08BAB9C0 /* TinyUsageDomain */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TinyUsageDomain; path = TinyUsageDomain; sourceTree = SOURCE_ROOT; };
 		192E5130EB8FB1989B318EFB /* ProviderEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderEditorView.swift; sourceTree = "<group>"; };
@@ -127,6 +130,7 @@
 		50496C310D22E2FF9434ACDD /* SnapshotRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotRepository.swift; sourceTree = "<group>"; };
 		50AED00AE0C0CD9CBE1F83A8 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		553200FE0F4CC7A675C54702 /* TinyUsageCollector.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TinyUsageCollector.entitlements; sourceTree = "<group>"; };
+		5606C33279BDA7F39D31229B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		604C0BD135AFFB6F53853468 /* OfficialConnectors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficialConnectors.swift; sourceTree = "<group>"; };
 		66CA79938452E38E19E990D3 /* TinyUsageWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TinyUsageWidget.entitlements; sourceTree = "<group>"; };
 		68275CAC0BA7CB76386A0769 /* Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
@@ -217,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				B58FE826790E89D371A045A1 /* AppDelegate.swift */,
+				5606C33279BDA7F39D31229B /* Assets.xcassets */,
 				AEB2787EC0B1F9C321A02551 /* BackgroundSyncService.swift */,
 				C3CA11BC98A22FBDF85275EA /* BonjourSyncClient.swift */,
 				50AED00AE0C0CD9CBE1F83A8 /* DashboardView.swift */,
@@ -323,6 +328,7 @@
 		E71DF26AF0DB9EE6EBD3CC61 /* TinyUsageCollector */ = {
 			isa = PBXGroup;
 			children = (
+				0FD6E3C650DF0FF585328CF6 /* Assets.xcassets */,
 				44AA031E46F2DA8054D675AD /* CollectorConfiguration.swift */,
 				CC664AB3B0B9AFD61AE97DD8 /* CollectorKeychain.swift */,
 				BA2F0D13E393956A85017525 /* CollectorModel.swift */,
@@ -344,6 +350,7 @@
 			buildConfigurationList = E63CBEB9D1666CEFA75AE7BA /* Build configuration list for PBXNativeTarget "TinyUsage" */;
 			buildPhases = (
 				265D124E9D89505A6036B0B7 /* Sources */,
+				821F398A57B218554248A3DA /* Resources */,
 				51724DA37C1611F2584720D3 /* Frameworks */,
 				F55876B9D64F26D20CA819CB /* Embed Foundation Extensions */,
 			);
@@ -365,6 +372,7 @@
 			buildConfigurationList = 2DFD032ACDE44E5FC0712D79 /* Build configuration list for PBXNativeTarget "TinyUsageCollector" */;
 			buildPhases = (
 				79AB8D232FCED21186591AA8 /* Sources */,
+				11E29459D9633F8E60B5A8DE /* Resources */,
 				CDE327AB5FF7E2888A9090D0 /* Frameworks */,
 				2900966048AC3140A0A616B5 /* Embed Frameworks */,
 			);
@@ -520,6 +528,25 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		11E29459D9633F8E60B5A8DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48681304E0412DFB18F4DB90 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		821F398A57B218554248A3DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04098743AB12B155331363E3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		265D124E9D89505A6036B0B7 /* Sources */ = {
