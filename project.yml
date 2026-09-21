@@ -1,0 +1,152 @@
+name: TinyUsage
+options:
+  bundleIdPrefix: dev.tinyusage
+  deploymentTarget:
+    iOS: "18.0"
+    macOS: "15.0"
+  xcodeVersion: "16.0"
+configFiles:
+  Debug: Config/Shared.xcconfig
+  Release: Config/Shared.xcconfig
+packages:
+  TinyUsageDomain:
+    path: TinyUsageDomain
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    DEVELOPMENT_TEAM: $(TINYUSAGE_DEVELOPMENT_TEAM)
+    CODE_SIGN_STYLE: Automatic
+    CURRENT_PROJECT_VERSION: 2
+    MARKETING_VERSION: 2.0
+targets:
+  TinyUsageCollectorCore:
+    type: framework
+    platform: macOS
+    sources: [TinyUsageCollectorCore]
+    dependencies:
+      - package: TinyUsageDomain
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(TINYUSAGE_BUNDLE_PREFIX).TinyUsageCollectorCore
+        GENERATE_INFOPLIST_FILE: YES
+        SKIP_INSTALL: YES
+  TinyUsageCollector:
+    type: application
+    platform: macOS
+    sources: [TinyUsageCollector]
+    info:
+      path: TinyUsageCollector/Info.plist
+      properties:
+        CFBundleDisplayName: TinyUsage Collector
+        TinyUsageKeychainNamespace: $(TINYUSAGE_KEYCHAIN_NAMESPACE).Collector
+        LSUIElement: true
+        NSLocalNetworkUsageDescription: Pair with your iPhone and synchronize usage snapshots on your local network.
+        NSBonjourServices: [_tinyusage._tcp]
+    entitlements:
+      path: TinyUsageCollector/TinyUsageCollector.entitlements
+      properties:
+        com.apple.security.app-sandbox: false
+    dependencies:
+      - target: TinyUsageCollectorCore
+      - package: TinyUsageDomain
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(TINYUSAGE_BUNDLE_PREFIX).TinyUsageCollector
+        ENABLE_HARDENED_RUNTIME: YES
+        ENABLE_APP_SANDBOX: NO
+  TinyUsage:
+    type: application
+    platform: iOS
+    sources: [TinyUsage]
+    info:
+      path: TinyUsage/Info.plist
+      properties:
+        CFBundleDisplayName: TinyUsage
+        TinyUsageAppGroupIdentifier: $(TINYUSAGE_APP_GROUP)
+        TinyUsageBackgroundRefreshIdentifier: $(TINYUSAGE_BACKGROUND_REFRESH_IDENTIFIER)
+        TinyUsageKeychainNamespace: $(TINYUSAGE_KEYCHAIN_NAMESPACE)
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait, UIInterfaceOrientationPortraitUpsideDown, UIInterfaceOrientationLandscapeLeft, UIInterfaceOrientationLandscapeRight]
+        UIBackgroundModes: [fetch]
+        BGTaskSchedulerPermittedIdentifiers: [$(TINYUSAGE_BACKGROUND_REFRESH_IDENTIFIER)]
+        NSSupportsLiveActivities: true
+        NSCameraUsageDescription: Scan the temporary pairing QR code shown by TinyUsage Collector on your Mac.
+        NSLocalNetworkUsageDescription: Find your paired TinyUsage Collector and synchronize usage snapshots on your local network.
+        NSBonjourServices: [_tinyusage._tcp]
+        CFBundleURLTypes:
+          - CFBundleURLName: $(TINYUSAGE_BUNDLE_PREFIX).TinyUsage
+            CFBundleURLSchemes: [tinyusage]
+    entitlements:
+      path: TinyUsage/TinyUsage.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - $(TINYUSAGE_APP_GROUP)
+    dependencies:
+      - package: TinyUsageDomain
+      - target: TinyUsageWidget
+        embed: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(TINYUSAGE_BUNDLE_PREFIX).TinyUsage
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+  TinyUsageWidget:
+    type: app-extension
+    platform: iOS
+    sources: [TinyUsageWidget]
+    info:
+      path: TinyUsageWidget/Info.plist
+      properties:
+        CFBundleDisplayName: TinyUsage
+        TinyUsageAppGroupIdentifier: $(TINYUSAGE_APP_GROUP)
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+        NSSupportsLiveActivities: true
+    entitlements:
+      path: TinyUsageWidget/TinyUsageWidget.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - $(TINYUSAGE_APP_GROUP)
+    dependencies:
+      - package: TinyUsageDomain
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(TINYUSAGE_BUNDLE_PREFIX).TinyUsage.Widget
+        SKIP_INSTALL: YES
+  TinyUsageTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources: [TinyUsageTests]
+    dependencies:
+      - package: TinyUsageDomain
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(TINYUSAGE_BUNDLE_PREFIX).TinyUsageTests
+        GENERATE_INFOPLIST_FILE: YES
+  TinyUsageCollectorTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources: [TinyUsageCollectorTests]
+    dependencies:
+      - target: TinyUsageCollectorCore
+      - package: TinyUsageDomain
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(TINYUSAGE_BUNDLE_PREFIX).TinyUsageCollectorTests
+        GENERATE_INFOPLIST_FILE: YES
+schemes:
+  TinyUsage:
+    build:
+      targets:
+        TinyUsage: all
+        TinyUsageWidget: all
+        TinyUsageTests: [test]
+    test:
+      targets: [TinyUsageTests]
+  TinyUsageCollector:
+    build:
+      targets:
+        TinyUsageCollector: all
+        TinyUsageCollectorCore: all
+        TinyUsageCollectorTests: [test]
+    test:
+      targets: [TinyUsageCollectorTests]

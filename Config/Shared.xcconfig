@@ -1,0 +1,11 @@
+// Shared defaults keep simulator and macOS source builds credential-free.
+// Copy Config/Developer.example.xcconfig to Config/Developer.xcconfig for a device build.
+#include? "Developer.xcconfig"
+
+TINYUSAGE_BUNDLE_PREFIX = dev.tinyusage
+TINYUSAGE_DEVELOPMENT_TEAM =
+TINYUSAGE_APP_GROUP = group.$(TINYUSAGE_BUNDLE_PREFIX).TinyUsage
+TINYUSAGE_BACKGROUND_REFRESH_IDENTIFIER = $(TINYUSAGE_BUNDLE_PREFIX).TinyUsage.refresh
+TINYUSAGE_KEYCHAIN_NAMESPACE = $(TINYUSAGE_BUNDLE_PREFIX).TinyUsage
+
+DEVELOPMENT_TEAM = $(TINYUSAGE_DEVELOPMENT_TEAM)

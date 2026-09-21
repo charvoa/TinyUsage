@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "lineLength": 200,
+  "indentation": { "spaces": 4 },
+  "maximumBlankLines": 1,
+  "respectsExistingLineBreaks": true,
+  "fileScopedDeclarationPrivacy": { "accessLevel": "private" }
+}

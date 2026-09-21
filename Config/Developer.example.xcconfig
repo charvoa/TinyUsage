@@ -1,0 +1,4 @@
+// Copy this file to Config/Developer.xcconfig (ignored by Git), then replace values.
+// The prefix must be a reverse-DNS identifier registered in your Apple Developer account.
+TINYUSAGE_BUNDLE_PREFIX = com.example.tinyusage
+TINYUSAGE_DEVELOPMENT_TEAM = YOUR_TEAM_ID

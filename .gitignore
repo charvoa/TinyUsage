@@ -1,0 +1,14 @@
+DerivedData/
+.build/
+build/
+*.xcuserstate
+xcuserdata/
+.DS_Store
+
+# Local developer signing and build configuration
+Config/Developer.xcconfig
+
+# Internal planning/agent artifacts are not part of the public source release
+_bmad-output/
+.agents/
+.codex/

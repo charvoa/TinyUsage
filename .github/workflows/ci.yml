@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    runs-on: macos-15
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Validate generated project
+        run: make generate-check
+
+      - name: Validate formatting
+        run: make format-check
+
+      - name: Test shared domain
+        run: swift test --package-path TinyUsageDomain
+
+      - name: Test macOS collector
+        run: xcodebuild test -project TinyUsage.xcodeproj -scheme TinyUsageCollector -destination 'platform=macOS' CODE_SIGNING_ALLOWED=NO
+
+      - name: Test iOS app and widget
+        run: xcodebuild test -project TinyUsage.xcodeproj -scheme TinyUsage -destination 'platform=iOS Simulator,name=iPhone 16 Pro' CODE_SIGNING_ALLOWED=NO
+
+      - name: Build unsigned targets
+        run: make build
+
+  secrets:
+    runs-on: macos-15
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+
+      - name: Install Gitleaks
+        run: brew install gitleaks
+
+      - name: Scan tracked source
+        run: gitleaks git --redact --no-banner --log-opts="--all"

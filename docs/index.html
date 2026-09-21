@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TinyUsage — Your AI limits. In your pocket.</title>
+  <meta name="description" content="A local-only Claude and Codex usage companion for macOS and iPhone.">
+  <style>
+    :root { color-scheme: dark; --ink:#f8f7ff; --muted:#bcb5d3; --bg:#17132f; --card:#282044; --pink:#ff7eb6; --violet:#a78bfa; }
+    * { box-sizing:border-box; } body { margin:0; color:var(--ink); background:radial-gradient(circle at 80% 0%,#39235f 0,#17132f 45%); font:16px/1.6 ui-sans-serif,system-ui,-apple-system,sans-serif; }
+    main { max-width:1050px; margin:auto; padding:48px 24px 80px; } a { color:#ffc4da; } .hero { display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:center; } h1 { font-size:clamp(42px,7vw,76px); line-height:1; margin:0 0 20px; letter-spacing:-.06em; } h2 { margin-top:56px; font-size:30px; } p { color:var(--muted); } .pill { display:inline-block; padding:6px 12px; border:1px solid #674d91; border-radius:999px; color:#ffd2e3; font-size:13px; } .cta { display:flex; gap:12px; flex-wrap:wrap; margin:28px 0; } .button { padding:11px 17px; border-radius:12px; background:linear-gradient(100deg,var(--pink),var(--violet)); color:#211536; text-decoration:none; font-weight:700; } .button.secondary { background:transparent; color:var(--ink); border:1px solid #674d91; } .card-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; } .card { background:rgba(40,32,68,.8); border:1px solid #493b70; border-radius:18px; padding:20px; } .card h3 { margin:0 0 6px; } .card p { margin:0; } img { width:100%; border-radius:20px; border:1px solid #58427f; } code { background:#241b41; padding:2px 6px; border-radius:5px; } footer { margin-top:64px; color:var(--muted); font-size:14px; } @media(max-width:760px){ .hero,.card-grid{grid-template-columns:1fr;} main{padding-top:28px;} }
+  </style>
+</head>
+<body><main>
+  <section class="hero"><div><span class="pill">Open source · local-only · MIT</span><h1>Your AI limits.<br>In your pocket.</h1><p>TinyUsage pairs a macOS collector with an iPhone companion for a clear view of Claude and Codex quotas, official API usage, and local estimates.</p><div class="cta"><a class="button" href="https://github.com/charvoa/TinyUsage">View the source</a><a class="button secondary" href="https://github.com/charvoa/TinyUsage/blob/main/CONTRIBUTING.md">Build it yourself</a></div></div><img src="assets/architecture.svg" alt="TinyUsage architecture"></section>
+  <h2>Calm data, clear provenance</h2><section class="card-grid"><article class="card"><h3>Private by default</h3><p>No backend, CloudKit, analytics, or proprietary push. Credentials stay on the Mac.</p></article><article class="card"><h3>Three honest views</h3><p>Subscription, official API, and local estimates are never silently merged.</p></article><article class="card"><h3>Useful offline</h3><p>The iPhone, widget, and Live Activity show the last known snapshot when Bonjour is unavailable.</p></article></section>
+  <h2>Start in three commands</h2><div class="card"><pre><code>brew install xcodegen
+make bootstrap
+make test</code></pre><p>Unsigned simulator and macOS builds need no personal credentials. Device signing uses an ignored local xcconfig.</p></div>
+  <h2>Read the details</h2><p><a href="ARCHITECTURE.md">Architecture</a> · <a href="PRIVACY.md">Privacy</a> · <a href="../SECURITY.md">Security</a> · <a href="../CHANGELOG.md">Changelog</a></p>
+  <footer>Maintained by NUGGETS CONSULTING FZCO. Claude, Codex, Anthropic, and OpenAI are trademarks of their respective owners.</footer>
+</main></body></html>

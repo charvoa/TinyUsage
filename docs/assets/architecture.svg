@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">TinyUsage local architecture</title>
+  <desc id="desc">Claude, Codex, and local logs flow into a Mac collector and then to an iPhone over encrypted Bonjour sync.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#17132f"/><stop offset="1" stop-color="#291a4f"/></linearGradient>
+    <linearGradient id="pink" x1="0" x2="1"><stop stop-color="#ff7eb6"/><stop offset="1" stop-color="#a78bfa"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-opacity=".25"/></filter>
+  </defs>
+  <rect width="1200" height="430" rx="32" fill="url(#bg)"/>
+  <g fill="#f8f7ff" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">
+    <text x="56" y="66" font-size="28" font-weight="700">Your AI limits. In your pocket.</text>
+    <text x="56" y="98" font-size="16" opacity=".72">A private, local-only bridge from your Mac to your iPhone.</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="54" y="145" width="280" height="190" rx="24" fill="#282044" stroke="#5b4d88"/>
+    <rect x="460" y="125" width="280" height="230" rx="24" fill="url(#pink)"/>
+    <rect x="870" y="105" width="260" height="270" rx="34" fill="#f8f7ff"/>
+  </g>
+  <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">
+    <g fill="#f8f7ff"><text x="86" y="188" font-size="19" font-weight="700">Inputs</text><text x="86" y="226" font-size="16">Claude + Codex APIs</text><text x="86" y="254" font-size="16">CLI session logs</text><text x="86" y="282" font-size="16">Mac Keychain</text><text x="86" y="316" font-size="13" opacity=".7">Credentials stay here</text></g>
+    <g fill="#20183a"><text x="492" y="174" font-size="19" font-weight="700">TinyUsage Collector</text><text x="492" y="216" font-size="16">Normalize • cache • explain</text><text x="492" y="247" font-size="16">Bonjour + TLS-PSK</text><text x="492" y="278" font-size="16">No backend • no telemetry</text><text x="492" y="321" font-size="13" opacity=".75">Only snapshots cross the wire</text></g>
+    <g fill="#211a3d"><text x="922" y="164" font-size="19" font-weight="700">iPhone companion</text><text x="922" y="209" font-size="16">Dashboard</text><text x="922" y="237" font-size="16">Widget</text><text x="922" y="265" font-size="16">One configurable Live Activity</text><text x="922" y="319" font-size="13" opacity=".65">Last known data, clearly labelled</text></g>
+  </g>
+  <g stroke="#f8f7ff" stroke-width="4" fill="none" stroke-linecap="round"><path d="M350 240h86"/><path d="M756 240h86"/></g>
+  <g fill="#f8f7ff"><path d="m426 240-14-10v20z"/><path d="m842 240-14-10v20z"/></g>
+</svg>
